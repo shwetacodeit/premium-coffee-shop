@@ -219,8 +219,7 @@ app.post('/api/reservations', (req, res) => {
 app.post('/api/quiz-match', (req, res) => {
   const { taste, brewMethod, intensity } = req.body;
 
-  // Matching logic
-  let match = MENU.find(i => i.id === 'b1'); // default Ethiopian Geisha
+  let match = MENU.find(i => i.id === 'b1');
   if (intensity === 'Dark' || taste === 'Bold & Chocolatey') {
     match = MENU.find(i => i.id === 'c2');
   } else if (taste === 'Sweet & Creamy') {
@@ -246,6 +245,10 @@ app.post('/api/newsletter', (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`☕ Aura Blend Express Backend running on http://localhost:${PORT}`);
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`☕ Aura Blend Express Backend running on http://localhost:${PORT}`);
+  });
+}
+
+export default app;
