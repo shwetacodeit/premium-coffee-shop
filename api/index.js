@@ -6,130 +6,130 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// In-Memory Coffee Shop Database
+// Indian Starbucks Style Menu Database
 const MENU = [
   {
     id: 'c1',
-    name: 'Aura Signature Velvet Latte',
+    name: 'Royal Saffron Cardamom Latte',
     category: 'signatures',
-    price: 6.75,
-    rating: 4.9,
-    reviews: 142,
-    badge: 'Bestseller',
-    description: 'Double espresso infused with Madagascar vanilla bean, steamed oat milk, and a dusting of 24k edible gold dust.',
+    price: 345,
+    rating: 4.95,
+    reviews: 284,
+    badge: 'Reserve Special',
+    description: 'Double shot dark roast espresso infused with Kashmiri saffron, crushed green cardamom, and silky oat milk.',
     image: 'https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80',
     customizable: true,
-    roast: 'Medium Roast',
-    calories: '220 kcal'
+    roast: 'Dark Roast',
+    calories: '210 kcal'
   },
   {
     id: 'c2',
-    name: 'Obsidian Nitro Cold Brew',
+    name: 'Kapi Nirvan Nitro Cold Brew',
     category: 'cold-brews',
-    price: 5.95,
-    rating: 4.8,
-    reviews: 98,
+    price: 320,
+    rating: 4.88,
+    reviews: 192,
     badge: 'Popular',
-    description: 'Steeped for 24 hours from Ethiopian Yirgacheffe beans, infused with pure nitrogen for a velvety cascade and rich foam.',
+    description: 'Slow steeped for 24 hours from Chikmagalur Arabica beans, infused with nitrogen for a velvety cascade foam.',
     image: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=80',
     customizable: true,
-    roast: 'Dark Roast',
-    calories: '15 kcal'
+    roast: 'Medium-Dark Roast',
+    calories: '20 kcal'
   },
   {
     id: 'c3',
-    name: 'Pistachio Cloud Espresso',
+    name: 'Malai Kulfi Pistachio Latte',
     category: 'signatures',
-    price: 7.25,
-    rating: 4.95,
-    reviews: 210,
+    price: 375,
+    rating: 4.98,
+    reviews: 310,
     badge: 'Chef Choice',
-    description: 'Ristretto espresso layered over house-made Sicilian pistachio foam, honey drizzle, and crushed roasted pistachios.',
+    description: 'Espresso poured over house-made rabri cream, roasted pistachio drizzle, and crushed green cardamom.',
     image: 'https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=800&q=80',
     customizable: true,
-    roast: 'Light Roast',
-    calories: '280 kcal'
+    roast: 'Medium Roast',
+    calories: '290 kcal'
   },
   {
     id: 'c4',
-    name: 'Artisanal Double Cortado',
+    name: 'Authentic South Indian Filter Kaapi',
     category: 'espresso',
-    price: 4.75,
-    rating: 4.7,
-    reviews: 84,
-    badge: 'Classic',
-    description: 'Equal parts single-origin espresso and warm silky milk served in a hand-blown crystal tumbler.',
+    price: 245,
+    rating: 4.9,
+    reviews: 420,
+    badge: 'Heritage Classic',
+    description: 'Traditional brass filter brew of Coorg Arabica & Robusta, froth-whipped with steaming hot milk in a brass dabarah.',
     image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80',
     customizable: true,
-    roast: 'Medium-Dark Roast',
-    calories: '90 kcal'
+    roast: 'Dark Roast',
+    calories: '110 kcal'
   },
   {
     id: 'c5',
-    name: 'Smoked Honey & Sea Salt Macchiato',
+    name: 'Smoked Jaggery Sea Salt Macchiato',
     category: 'signatures',
-    price: 6.95,
-    rating: 4.88,
-    reviews: 116,
+    price: 355,
+    rating: 4.85,
+    reviews: 145,
     badge: 'Limited',
-    description: 'Espresso marked with microfoam, smoked wildflower honey, and flaky Maldon sea salt.',
+    description: 'Single-origin espresso layered over organic palm jaggery caramel, velvet foam, and sea salt.',
     image: 'https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=800&q=80',
     customizable: true,
     roast: 'Medium Roast',
-    calories: '190 kcal'
+    calories: '185 kcal'
   },
   {
     id: 'c6',
-    name: 'Iced Cardamom Rose Brew',
+    name: 'Spiced Alphonso Mango Cold Brew',
     category: 'cold-brews',
-    price: 6.25,
-    rating: 4.75,
-    reviews: 72,
+    price: 335,
+    rating: 4.8,
+    reviews: 112,
     badge: 'Refreshing',
-    description: 'Cold brewed arabica infused with green cardamom pods, organic rose water, and coconut nectar.',
+    description: 'Cold brew infused with Ratnagiri Alphonso mango nectar, mint sprig, and a hint of star anise.',
     image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80',
     customizable: true,
-    roast: 'Light-Medium Roast',
-    calories: '45 kcal'
+    roast: 'Light Roast',
+    calories: '95 kcal'
   },
   {
     id: 'p1',
-    name: 'Golden Truffle Butter Croissant',
+    name: 'Paneer & Black Truffle Croissant',
     category: 'pastries',
-    price: 5.50,
-    rating: 4.9,
-    reviews: 165,
+    price: 265,
+    rating: 4.92,
+    reviews: 210,
     badge: 'Fresh Baked',
-    description: 'Hand-laminated French butter croissant infused with black truffle honey and golden sea salt.',
+    description: 'French butter croissant stuffed with spiced cottage cheese, herbs, and black truffle drizzle.',
     image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80',
     customizable: false,
-    calories: '340 kcal'
+    calories: '360 kcal'
   },
   {
     id: 'p2',
     name: 'Dark Chocolate Hazelnut Tart',
     category: 'pastries',
-    price: 6.50,
-    rating: 4.85,
-    reviews: 94,
+    price: 295,
+    rating: 4.87,
+    reviews: 168,
     badge: 'Decadent',
-    description: '70% Valrhona dark chocolate ganache, praline crunch, and roasted Piedmont hazelnuts.',
+    description: '70% Valrhona dark chocolate ganache tart infused with crushed roasted hazelnut praline.',
     image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80',
     customizable: false,
-    calories: '410 kcal'
+    calories: '420 kcal'
   },
   {
     id: 'b1',
-    name: 'Ethiopian Geisha Single Origin (250g)',
+    name: 'Monsooned Malabar AA Single Origin (250g)',
     category: 'whole-bean',
-    price: 24.00,
-    rating: 4.98,
-    reviews: 58,
-    badge: 'Micro-Lot',
-    description: 'Exquisite notes of jasmine, bergamot, peach nectar, and wild honey. Grown at 2,100m elevation.',
+    price: 890,
+    rating: 4.99,
+    reviews: 94,
+    badge: 'Heritage Estate',
+    description: 'Exquisite monsooned beans from Western Ghats with deep notes of dark chocolate, spice, and earth.',
     image: 'https://images.unsplash.com/photo-1587734195503-904fca47e0e9?auto=format&fit=crop&w=800&q=80',
     customizable: false,
-    roast: 'Light Roast'
+    roast: 'Dark Roast'
   }
 ];
 
@@ -154,26 +154,26 @@ app.get('/api/menu', (req, res) => {
 });
 
 app.post('/api/orders', (req, res) => {
-  const { items, customer, promoCode } = req.body;
+  const { items, promoCode } = req.body;
 
   if (!items || items.length === 0) {
     return res.status(400).json({ success: false, error: 'Cart cannot be empty' });
   }
 
   const subtotal = items.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-  const discount = promoCode === 'COFFEE10' ? subtotal * 0.10 : 0;
-  const tax = (subtotal - discount) * 0.08;
+  const discount = (promoCode === 'INDIANSTAR10' || promoCode === 'COFFEE10') ? subtotal * 0.10 : 0;
+  const tax = (subtotal - discount) * 0.05; // 5% GST
   const total = subtotal - discount + tax;
 
   const order = {
-    orderId: 'AURA-' + Math.floor(100000 + Math.random() * 900000),
+    orderId: 'SB-IND-' + Math.floor(100000 + Math.random() * 900000),
     timestamp: new Date().toISOString(),
     itemsCount: items.reduce((acc, item) => acc + item.quantity, 0),
-    subtotal: subtotal.toFixed(2),
-    discount: discount.toFixed(2),
-    tax: tax.toFixed(2),
-    total: total.toFixed(2),
-    estimatedTime: '12 - 15 mins',
+    subtotal: subtotal.toFixed(0),
+    discount: discount.toFixed(0),
+    tax: tax.toFixed(0),
+    total: total.toFixed(0),
+    estimatedTime: '10 - 15 mins',
     status: 'Confirmed'
   };
 
@@ -192,14 +192,14 @@ app.post('/api/reservations', (req, res) => {
   }
 
   const reservation = {
-    reservationId: 'RES-' + Math.floor(1000 + Math.random() * 9000),
+    reservationId: 'SB-RES-' + Math.floor(1000 + Math.random() * 9000),
     name,
     email,
     phone,
     date,
     time,
     guests,
-    area: area || 'Main Lounge',
+    area: area || 'Starbucks Reserve Lounge',
     specialRequests: specialRequests || 'None',
     createdAt: new Date().toISOString()
   };
@@ -216,15 +216,15 @@ app.post('/api/quiz-match', (req, res) => {
 
   let match = MENU.find(i => i.id === 'b1');
   if (intensity === 'Dark' || taste === 'Bold & Chocolatey') {
-    match = MENU.find(i => i.id === 'c2');
+    match = MENU.find(i => i.id === 'c4');
   } else if (taste === 'Sweet & Creamy') {
-    match = MENU.find(i => i.id === 'c1');
+    match = MENU.find(i => i.id === 'c3');
   }
 
   res.json({
     success: true,
     recommendedItem: match,
-    reason: `Based on your love for ${taste.toLowerCase()} flavor profiles and ${brewMethod.toLowerCase()} brewing, this is your perfect artisanal match!`
+    reason: `Based on your love for ${taste.toLowerCase()} and traditional Indian coffee craft, this is your signature Starbucks match!`
   });
 });
 
@@ -235,7 +235,7 @@ app.post('/api/newsletter', (req, res) => {
   }
   res.json({
     success: true,
-    message: 'Thank you for subscribing to Aura Blend Coffee Club! Check your inbox for your 15% welcome voucher.'
+    message: 'Welcome to Starbucks India Rewards! Enjoy ₹150 off your first coffee experience.'
   });
 });
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Sparkles, Award, Coffee, Star } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 
 export default function Hero({ onExploreMenu, onOpenQuiz }) {
   return (
@@ -12,16 +12,16 @@ export default function Hero({ onExploreMenu, onOpenQuiz }) {
       position: 'relative',
       overflow: 'hidden'
     }}>
-      {/* Background Lighting Glows */}
+      {/* Background Starbucks Siren Lighting Glows */}
       <div style={{
         position: 'absolute',
-        top: '20%',
-        left: '10%',
-        width: '350px',
-        height: '350px',
+        top: '15%',
+        left: '8%',
+        width: '420px',
+        height: '420px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(0,0,0,0) 70%)',
-        filter: 'blur(50px)',
+        background: 'radial-gradient(circle, rgba(0, 168, 98, 0.2) 0%, rgba(0,0,0,0) 70%)',
+        filter: 'blur(60px)',
         pointerEvents: 'none'
       }} />
 
@@ -29,11 +29,11 @@ export default function Hero({ onExploreMenu, onOpenQuiz }) {
         position: 'absolute',
         bottom: '10%',
         right: '5%',
-        width: '450px',
-        height: '450px',
+        width: '500px',
+        height: '500px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(230, 126, 34, 0.1) 0%, rgba(0,0,0,0) 70%)',
-        filter: 'blur(60px)',
+        background: 'radial-gradient(circle, rgba(30, 57, 50, 0.3) 0%, rgba(0,0,0,0) 70%)',
+        filter: 'blur(70px)',
         pointerEvents: 'none'
       }} />
 
@@ -48,7 +48,7 @@ export default function Hero({ onExploreMenu, onOpenQuiz }) {
         {/* Left Column: Copy & CTAs */}
         <div>
           <div className="badge" style={{ marginBottom: '20px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-            <Sparkles size={14} /> Artisanal Roastery & Craft Bar
+            <Sparkles size={14} /> Starbucks Reserve India Roastery
           </div>
 
           <h1 style={{
@@ -58,7 +58,7 @@ export default function Hero({ onExploreMenu, onOpenQuiz }) {
             marginBottom: '24px',
             color: 'var(--text-main)'
           }}>
-            Every Sip, A Masterpiece of <span className="text-gold">Pure Elegance.</span>
+            Handcrafted Indian Coffee, <span className="text-sb">Pure Reserve Luxury.</span>
           </h1>
 
           <p style={{
@@ -68,12 +68,12 @@ export default function Hero({ onExploreMenu, onOpenQuiz }) {
             maxWidth: '520px',
             lineHeight: 1.7
           }}>
-            Experience single-origin micro-lots, hand-laminated golden croissants, and bespoke velvet lattes crafted by award-winning baristas.
+            Discover Chikmagalur single-origin Arabica, Kashmiri saffron cardamoms, and artisanal South Indian Filter Kaapi extracted to perfection.
           </p>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', marginBottom: '48px' }}>
             <button onClick={onExploreMenu} className="btn btn-primary" style={{ padding: '14px 32px' }}>
-              Explore Artisanal Menu <ArrowRight size={18} />
+              Explore Reserve Menu <ArrowRight size={18} />
             </button>
             <button onClick={onOpenQuiz} className="btn btn-outline" style={{ padding: '14px 28px' }}>
               <Sparkles size={18} /> Find Your Perfect Roast
@@ -81,18 +81,18 @@ export default function Hero({ onExploreMenu, onOpenQuiz }) {
           </div>
 
           {/* Social Proof Stats */}
-          <div style={{ display: 'flex', gap: '32px', borderTop: '1px solid var(--border-gold)', paddingTop: '24px' }}>
+          <div style={{ display: 'flex', gap: '32px', borderTop: '1px solid var(--slate-border)', paddingTop: '24px' }}>
             <div>
-              <div style={{ fontSize: '1.8rem', fontWeight: 700, color: 'var(--gold-primary)' }}>4.9★</div>
-              <div style={{ fontSize: '0.85rem', color: 'var(--text-dim)' }}>2,400+ Reviews</div>
+              <div style={{ fontSize: '1.8rem', fontWeight: 700, color: 'var(--sb-green-light)' }}>4.95★</div>
+              <div style={{ fontSize: '0.85rem', color: 'var(--text-dim)' }}>4,800+ Reviews</div>
             </div>
-            <div style={{ borderLeft: '1px solid var(--border-gold)', paddingLeft: '32px' }}>
+            <div style={{ borderLeft: '1px solid var(--slate-border)', paddingLeft: '32px' }}>
               <div style={{ fontSize: '1.8rem', fontWeight: 700, color: 'var(--text-main)' }}>100%</div>
-              <div style={{ fontSize: '0.85rem', color: 'var(--text-dim)' }}>Ethical Arabica</div>
+              <div style={{ fontSize: '0.85rem', color: 'var(--text-dim)' }}>Indian Arabica</div>
             </div>
-            <div style={{ borderLeft: '1px solid var(--border-gold)', paddingLeft: '32px' }}>
-              <div style={{ fontSize: '1.8rem', fontWeight: 700, color: 'var(--gold-primary)' }}>18+</div>
-              <div style={{ fontSize: '0.85rem', color: 'var(--text-dim)' }}>Global Awards</div>
+            <div style={{ borderLeft: '1px solid var(--slate-border)', paddingLeft: '32px' }}>
+              <div style={{ fontSize: '1.8rem', fontWeight: 700, color: 'var(--sb-gold)' }}>₹150 Off</div>
+              <div style={{ fontSize: '0.85rem', color: 'var(--text-dim)' }}>First Rewards Order</div>
             </div>
           </div>
         </div>
@@ -103,12 +103,12 @@ export default function Hero({ onExploreMenu, onOpenQuiz }) {
             position: 'relative',
             borderRadius: 'var(--radius-lg)',
             overflow: 'hidden',
-            boxShadow: '0 25px 60px rgba(0,0,0,0.7)',
-            border: '1px solid var(--border-gold-strong)'
+            boxShadow: '0 25px 60px rgba(0,0,0,0.85)',
+            border: '1px solid var(--slate-border-strong)'
           }}>
             <img 
               src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=1000&q=80" 
-              alt="Aura Signature Coffee" 
+              alt="Starbucks Royal Saffron Latte" 
               style={{ width: '100%', height: '480px', objectFit: 'cover', display: 'block' }}
             />
             
@@ -122,18 +122,18 @@ export default function Hero({ onExploreMenu, onOpenQuiz }) {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              background: 'rgba(10, 8, 6, 0.85)'
+              background: 'rgba(11, 20, 17, 0.9)'
             }}>
               <div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--gold-primary)', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase' }}>
-                  FEATURED SELECTION
+                <div style={{ fontSize: '0.8rem', color: 'var(--sb-green-light)', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase' }}>
+                  STARBUCKS RESERVE SPECIAL
                 </div>
                 <div className="font-serif" style={{ fontSize: '1.2rem', fontWeight: 700, marginTop: '2px' }}>
-                  Aura Velvet Gold Latte
+                  Royal Saffron Cardamom Latte
                 </div>
               </div>
               <div style={{ textAlign: 'right' }}>
-                <span className="font-serif text-gold" style={{ fontSize: '1.3rem', fontWeight: 700 }}>$6.75</span>
+                <span className="font-serif text-sb" style={{ fontSize: '1.4rem', fontWeight: 700 }}>₹345</span>
               </div>
             </div>
           </div>

@@ -4,38 +4,38 @@ import { Star, Quote } from 'lucide-react';
 const REVIEWS = [
   {
     id: 1,
-    name: 'Sophia Laurent',
-    role: 'Food & Wine Critic',
+    name: 'Ananya Deshmukh',
+    role: 'Coffee Enthusiast & Food Blogger',
     rating: 5,
-    text: 'Aura Blend elevates coffee to an art form. The Velvet Latte with 24k gold dust is unlike anything I’ve tasted in Paris or Milan.',
+    text: 'Starbucks Reserve India has outdone itself. The Royal Saffron Cardamom Latte paired with Malai Kulfi cream is absolute perfection.',
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'
   },
   {
     id: 2,
-    name: 'Marcus Vance',
-    role: 'Architect & Coffee Collector',
+    name: 'Vikramaditya Rao',
+    role: 'Architect, Bengaluru',
     rating: 5,
-    text: 'The Ethiopian Geisha pour-over blew me away. The jasmine and bergamot notes are incredibly distinct. Unrivaled ambience!',
+    text: 'The Chikmagalur Monsooned Malabar Arabica is deeply aromatic. The ambience in the Indiranagar Flagship Lounge is unmatched.',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80'
   },
   {
     id: 3,
-    name: 'Elena Rostova',
-    role: 'Michelin Star Chef',
+    name: 'Priya Iyer',
+    role: 'Culinary Stylist, Mumbai',
     rating: 5,
-    text: 'Their French butter croissants with black truffle honey pair exquisitely with the Pistachio Cloud Espresso. Truly world class.',
+    text: 'Their South Indian Filter Kaapi brewed with brass dabarah and steamed oat milk is a masterpiece of Indian coffee culture.',
     avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80'
   }
 ];
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" style={{ padding: '100px 0', background: 'linear-gradient(180deg, #0a0806 0%, #14100c 100%)' }}>
+    <section id="testimonials" style={{ padding: '100px 0', background: 'linear-gradient(180deg, #0b1411 0%, #13201b 100%)' }}>
       <div className="container">
         <div style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto 60px' }}>
           <div className="badge" style={{ marginBottom: '14px' }}>Guest Reviews</div>
           <h2 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '16px' }}>
-            Loved by Connoisseurs & <span className="text-gold">Critics Alike</span>
+            Loved by Coffee Connoisseurs <span className="text-sb">Across India</span>
           </h2>
         </div>
 
@@ -46,11 +46,11 @@ export default function Testimonials() {
         }}>
           {REVIEWS.map(r => (
             <div key={r.id} className="glass-card" style={{ padding: '30px', position: 'relative' }}>
-              <Quote size={36} style={{ position: 'absolute', right: '24px', top: '24px', opacity: 0.15, color: 'var(--gold-primary)' }} />
+              <Quote size={36} style={{ position: 'absolute', right: '24px', top: '24px', opacity: 0.15, color: 'var(--sb-green-light)' }} />
               
               <div style={{ display: 'flex', gap: '4px', marginBottom: '16px' }}>
                 {[...Array(r.rating)].map((_, i) => (
-                  <Star key={i} size={16} fill="var(--gold-hover)" color="none" />
+                  <Star key={i} size={16} fill="var(--sb-green-light)" color="none" />
                 ))}
               </div>
 
@@ -59,7 +59,7 @@ export default function Testimonials() {
               </p>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                <img src={r.avatar} alt={r.name} style={{ width: '48px', height: '48px', borderRadius: '50%', objectFit: 'cover', border: '1px solid var(--gold-primary)' }} />
+                <img src={r.avatar} alt={r.name} style={{ width: '48px', height: '48px', borderRadius: '50%', objectFit: 'cover', border: '1px solid var(--sb-green-light)' }} />
                 <div>
                   <h4 className="font-serif" style={{ fontSize: '1rem', fontWeight: 700 }}>{r.name}</h4>
                   <span style={{ fontSize: '0.8rem', color: 'var(--text-dim)' }}>{r.role}</span>

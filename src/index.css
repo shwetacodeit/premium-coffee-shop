@@ -1,26 +1,35 @@
-/* Aura Blend Premium Coffee Shop Design System */
+/* Starbucks India Reserve Design System */
 :root {
-  --bg-dark: #0a0806;
-  --bg-card: #14100c;
-  --bg-glass: rgba(20, 16, 12, 0.75);
-  --bg-glass-hover: rgba(30, 24, 18, 0.85);
-  --border-gold: rgba(212, 175, 55, 0.25);
-  --border-gold-strong: rgba(212, 175, 55, 0.6);
-  --gold-primary: #d4af37;
-  --gold-hover: #f0c75e;
-  --gold-glow: rgba(212, 175, 55, 0.3);
-  --text-main: #f5efe6;
-  --text-muted: #a69888;
-  --text-dim: #6e6254;
-  --accent-amber: #e67e22;
+  --bg-dark: #0b1411;
+  --bg-card: #13201b;
+  --bg-glass: rgba(19, 32, 27, 0.85);
+  --bg-glass-hover: rgba(26, 44, 37, 0.92);
+  
+  /* Starbucks Colors */
+  --sb-green: #006241;
+  --sb-green-light: #00a862;
+  --sb-green-dark: #1e3932;
+  --sb-mint: #d4e9e2;
+  --sb-gold: #cba258;
+  --sb-glow: rgba(0, 168, 98, 0.35);
+  
+  --slate-border: rgba(212, 233, 226, 0.2);
+  --slate-border-strong: rgba(0, 168, 98, 0.55);
+  
+  --text-main: #f3f1e7;
+  --text-muted: #b8c9c2;
+  --text-dim: #708c81;
+  
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 24px;
   --radius-full: 9999px;
+  
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-  --shadow-glow: 0 0 25px rgba(212, 175, 55, 0.15);
-  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  
+  --shadow-glow: 0 0 30px rgba(0, 168, 98, 0.25);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -51,12 +60,12 @@ body {
   background: var(--bg-dark);
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2219;
+  background: var(--sb-green-dark);
   border-radius: var(--radius-full);
   border: 2px solid var(--bg-dark);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--gold-primary);
+  background: var(--sb-green-light);
 }
 
 /* Typography Utilities */
@@ -64,9 +73,9 @@ h1, h2, h3, h4, .font-serif {
   font-family: var(--font-serif);
 }
 
-.text-gold {
-  color: var(--gold-primary);
-  background: linear-gradient(135deg, #f0c75e 0%, #d4af37 50%, #997a15 100%);
+.text-emerald, .text-gold, .text-sb {
+  color: var(--sb-green-light);
+  background: linear-gradient(135deg, #00a862 0%, #006241 50%, #cba258 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -91,25 +100,26 @@ h1, h2, h3, h4, .font-serif {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #f0c75e 0%, #d4af37 100%);
-  color: #0a0806;
-  box-shadow: 0 4px 20px var(--gold-glow);
+  background: linear-gradient(135deg, #00a862 0%, #006241 100%);
+  color: #f3f1e7;
+  box-shadow: 0 4px 20px var(--sb-glow);
 }
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 28px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 6px 28px rgba(0, 168, 98, 0.5);
+  background: linear-gradient(135deg, #00c875 0%, #007a52 100%);
 }
 
 .btn-outline {
   background: transparent;
   color: var(--text-main);
-  border: 1px solid var(--border-gold);
+  border: 1px solid var(--slate-border);
   backdrop-filter: blur(10px);
 }
 .btn-outline:hover {
-  border-color: var(--gold-primary);
-  color: var(--gold-primary);
-  background: rgba(212, 175, 55, 0.08);
+  border-color: var(--sb-green-light);
+  color: var(--sb-green-light);
+  background: rgba(0, 168, 98, 0.12);
   transform: translateY(-2px);
 }
 
@@ -125,14 +135,14 @@ h1, h2, h3, h4, .font-serif {
   background: var(--bg-glass);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-gold);
+  border: 1px solid var(--slate-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-glass);
   transition: var(--transition);
 }
 
 .glass-card:hover {
-  border-color: var(--border-gold-strong);
+  border-color: var(--slate-border-strong);
   box-shadow: var(--shadow-glow);
 }
 
@@ -140,11 +150,6 @@ h1, h2, h3, h4, .font-serif {
 @keyframes float {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
   50% { transform: translateY(-12px) rotate(3deg); }
-}
-
-@keyframes pulseGlow {
-  0%, 100% { opacity: 0.3; filter: blur(40px); }
-  50% { opacity: 0.6; filter: blur(60px); }
 }
 
 @keyframes slideInRight {
@@ -169,8 +174,8 @@ h1, h2, h3, h4, .font-serif {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(8px);
+  background: rgba(4, 10, 8, 0.9);
+  backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -180,15 +185,15 @@ h1, h2, h3, h4, .font-serif {
 }
 
 .modal-content {
-  background: #14100c;
-  border: 1px solid var(--border-gold-strong);
+  background: #13201b;
+  border: 1px solid var(--slate-border-strong);
   border-radius: var(--radius-lg);
   max-width: 600px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.85);
 }
 
 /* Toast Notifications */
@@ -203,8 +208,8 @@ h1, h2, h3, h4, .font-serif {
 }
 
 .toast {
-  background: #1c1611;
-  border: 1px solid var(--gold-primary);
+  background: #1e3932;
+  border: 1px solid var(--sb-green-light);
   color: var(--text-main);
   padding: 14px 22px;
   border-radius: var(--radius-md);
@@ -230,7 +235,7 @@ h1, h2, h3, h4, .font-serif {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  background: rgba(212, 175, 55, 0.15);
-  color: var(--gold-primary);
-  border: 1px solid var(--border-gold);
+  background: rgba(0, 168, 98, 0.18);
+  color: var(--sb-green-light);
+  border: 1px solid rgba(0, 168, 98, 0.35);
 }

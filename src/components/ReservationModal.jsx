@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { X, Calendar, Clock, Users, MapPin, CheckCircle2 } from 'lucide-react';
 
 const TIME_SLOTS = [
-  '08:00 AM', '09:30 AM', '11:00 AM', '01:00 PM', '03:00 PM', '05:00 PM', '07:00 PM'
+  '08:00 AM', '09:30 AM', '11:00 AM', '01:00 PM', '03:00 PM', '05:00 PM', '07:30 PM', '09:00 PM'
 ];
 
 const AREAS = [
-  { id: 'patio', name: '🌿 Outdoor Sunlit Patio' },
-  { id: 'lounge', name: '🛋️ VIP Velvet Lounge' },
-  { id: 'bar', name: '☕ Barista Espresso Counter' }
+  { id: 'indiranagar', name: '🌿 Indiranagar Flagship Lounge (Bengaluru)' },
+  { id: 'bandra', name: '🌊 Bandra Sunlit Reserve (Mumbai)' },
+  { id: 'cp', name: '🏛️ Connaught Place Bar (Delhi)' }
 ];
 
 export default function ReservationModal({ onClose, onShowToast }) {
@@ -39,7 +39,7 @@ export default function ReservationModal({ onClose, onShowToast }) {
       const data = await res.json();
       if (data.success) {
         setConfirmed(data.reservation);
-        onShowToast(`Reservation confirmed for ${formData.name}!`);
+        onShowToast(`Table reserved for ${formData.name}!`);
       }
     } catch (err) {
       console.error(err);
@@ -54,10 +54,10 @@ export default function ReservationModal({ onClose, onShowToast }) {
         {/* Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
           <div>
-            <span style={{ fontSize: '0.8rem', color: 'var(--gold-primary)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px' }}>
-              Aura Lounge Experience
+            <span style={{ fontSize: '0.8rem', color: 'var(--sb-green-light)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px' }}>
+              Starbucks Reserve India
             </span>
-            <h2 className="font-serif" style={{ fontSize: '1.6rem', fontWeight: 700 }}>Reserve Your Table</h2>
+            <h2 className="font-serif" style={{ fontSize: '1.6rem', fontWeight: 700 }}>Reserve Your Lounge Table</h2>
           </div>
           <button onClick={onClose} className="btn btn-outline btn-icon" style={{ borderRadius: '50%' }}>
             <X size={20} />
@@ -73,7 +73,7 @@ export default function ReservationModal({ onClose, onShowToast }) {
                 <input
                   type="text"
                   required
-                  placeholder="Eleanor Vance"
+                  placeholder="Rohan Sharma"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   style={inputStyle}
@@ -84,7 +84,7 @@ export default function ReservationModal({ onClose, onShowToast }) {
                 <input
                   type="email"
                   required
-                  placeholder="eleanor@example.com"
+                  placeholder="rohan@example.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   style={inputStyle}
@@ -112,7 +112,7 @@ export default function ReservationModal({ onClose, onShowToast }) {
                   max="10"
                   value={formData.guests}
                   onChange={(e) => setFormData({ ...formData, guests: parseInt(e.target.value) })}
-                  style={{ width: '100%', accentColor: 'var(--gold-primary)', height: '36px' }}
+                  style={{ width: '100%', accentColor: 'var(--sb-green-light)', height: '36px' }}
                 />
               </div>
             </div>
@@ -133,10 +133,10 @@ export default function ReservationModal({ onClose, onShowToast }) {
               </div>
             </div>
 
-            {/* Seating Area */}
+            {/* Reserve Location */}
             <div>
-              <label style={labelStyle}><MapPin size={14} style={{ display: 'inline', marginRight: '4px' }} /> Seating Preference</label>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px' }}>
+              <label style={labelStyle}><MapPin size={14} style={{ display: 'inline', marginRight: '4px' }} /> Select Reserve Roastery Location</label>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {AREAS.map(a => (
                   <button
                     type="button"
@@ -156,18 +156,18 @@ export default function ReservationModal({ onClose, onShowToast }) {
         ) : (
           /* Confirmation State */
           <div style={{ textAlign: 'center', padding: '20px 0' }}>
-            <CheckCircle2 size={48} style={{ color: 'var(--gold-primary)', margin: '0 auto 16px' }} />
-            <h3 className="font-serif text-gold" style={{ fontSize: '1.6rem', fontWeight: 700, marginBottom: '8px' }}>
+            <CheckCircle2 size={48} style={{ color: 'var(--sb-green-light)', margin: '0 auto 16px' }} />
+            <h3 className="font-serif text-sb" style={{ fontSize: '1.6rem', fontWeight: 700, marginBottom: '8px' }}>
               Reservation Confirmed!
             </h3>
             <p style={{ color: 'var(--text-muted)', marginBottom: '24px' }}>
-              Reference ID: <strong>{confirmed.reservationId}</strong>
+              Booking Reference: <strong>{confirmed.reservationId}</strong>
             </p>
             <div className="glass-card" style={{ padding: '18px', textAlign: 'left', marginBottom: '24px', fontSize: '0.9rem' }}>
               <div>📅 <strong>Date:</strong> {confirmed.date}</div>
               <div>⏰ <strong>Time:</strong> {confirmed.time}</div>
               <div>👥 <strong>Party:</strong> {confirmed.guests} Guests</div>
-              <div>📍 <strong>Area:</strong> {confirmed.area}</div>
+              <div>📍 <strong>Location:</strong> {confirmed.area}</div>
             </div>
             <button onClick={onClose} className="btn btn-outline" style={{ width: '100%', padding: '12px' }}>
               Close
@@ -191,20 +191,21 @@ const inputStyle = {
   width: '100%',
   padding: '10px 14px',
   borderRadius: 'var(--radius-sm)',
-  background: 'rgba(20, 16, 12, 0.8)',
-  border: '1px solid var(--border-gold)',
+  background: 'rgba(19, 32, 27, 0.8)',
+  border: '1px solid var(--slate-border)',
   color: 'var(--text-main)',
   fontSize: '0.9rem',
   outline: 'none'
 };
 
 const chipButtonStyle = (active) => ({
-  padding: '8px 12px',
+  padding: '10px 14px',
   borderRadius: 'var(--radius-sm)',
-  border: active ? '1px solid var(--gold-primary)' : '1px solid rgba(212, 175, 55, 0.15)',
-  background: active ? 'rgba(212, 175, 55, 0.2)' : 'rgba(20, 16, 12, 0.6)',
-  color: active ? 'var(--gold-hover)' : 'var(--text-muted)',
-  fontSize: '0.82rem',
+  border: active ? '1px solid var(--sb-green-light)' : '1px solid rgba(212, 233, 226, 0.15)',
+  background: active ? 'rgba(0, 168, 98, 0.22)' : 'rgba(19, 32, 27, 0.6)',
+  color: active ? 'var(--sb-green-light)' : 'var(--text-muted)',
+  fontSize: '0.85rem',
   cursor: 'pointer',
+  textAlign: 'left',
   transition: 'var(--transition)'
 });

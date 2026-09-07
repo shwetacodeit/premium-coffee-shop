@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Search, SlidersHorizontal, Plus, Star, Sparkles } from 'lucide-react';
+import { Search, Plus, Star, Sparkles } from 'lucide-react';
 
 const CATEGORIES = [
   { id: 'all', label: 'All Items' },
-  { id: 'signatures', label: '✨ Signature Craft' },
-  { id: 'espresso', label: '☕ Espresso Bar' },
-  { id: 'cold-brews', label: '🧊 Cold Brews' },
-  { id: 'pastries', label: '🥐 Fresh Pastries' },
-  { id: 'whole-bean', label: '🌱 Whole Bean' }
+  { id: 'signatures', label: '✨ Starbucks Reserve Craft' },
+  { id: 'espresso', label: '☕ Espresso & Filter Kaapi' },
+  { id: 'cold-brews', label: '🧊 Nitro Cold Brews' },
+  { id: 'pastries', label: '🥐 Fresh Bakes & Puffs' },
+  { id: 'whole-bean', label: '🌱 Single Origin Beans' }
 ];
 
 export default function Menu({ menuItems, onAddToCart, onOpenCustomizer }) {
@@ -26,12 +26,12 @@ export default function Menu({ menuItems, onAddToCart, onOpenCustomizer }) {
       <div className="container">
         {/* Section Header */}
         <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 50px' }}>
-          <div className="badge" style={{ marginBottom: '14px' }}>Artisanal Offerings</div>
+          <div className="badge" style={{ marginBottom: '14px' }}>Starbucks India Reserve</div>
           <h2 style={{ fontSize: '2.8rem', fontWeight: 700, marginBottom: '16px' }}>
-            Handcrafted <span className="text-gold">Menu & Delicacies</span>
+            Handcrafted <span className="text-sb">Menu & Delicacies</span>
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem' }}>
-            Every roast is meticulously profiled, extracted to gold standards, and paired with house-baked buttery French pastries.
+            Single-origin Indian coffees harvested from Western Ghats, roasted to perfection and paired with fresh bakes.
           </p>
         </div>
 
@@ -57,10 +57,10 @@ export default function Menu({ menuItems, onAddToCart, onOpenCustomizer }) {
                   fontWeight: 600,
                   cursor: 'pointer',
                   transition: 'var(--transition)',
-                  border: activeCategory === cat.id ? '1px solid var(--gold-primary)' : '1px solid rgba(212, 175, 55, 0.15)',
-                  background: activeCategory === cat.id ? 'linear-gradient(135deg, #f0c75e 0%, #d4af37 100%)' : 'rgba(20, 16, 12, 0.6)',
-                  color: activeCategory === cat.id ? '#0a0806' : 'var(--text-main)',
-                  boxShadow: activeCategory === cat.id ? '0 4px 15px rgba(212, 175, 55, 0.3)' : 'none'
+                  border: activeCategory === cat.id ? '1px solid var(--sb-green-light)' : '1px solid rgba(212, 233, 226, 0.2)',
+                  background: activeCategory === cat.id ? 'linear-gradient(135deg, #00a862 0%, #006241 100%)' : 'rgba(19, 32, 27, 0.7)',
+                  color: activeCategory === cat.id ? '#f3f1e7' : 'var(--text-main)',
+                  boxShadow: activeCategory === cat.id ? '0 4px 18px rgba(0, 168, 98, 0.4)' : 'none'
                 }}>
                 {cat.label}
               </button>
@@ -72,15 +72,15 @@ export default function Menu({ menuItems, onAddToCart, onOpenCustomizer }) {
             <Search size={18} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-dim)' }} />
             <input
               type="text"
-              placeholder="Search coffee, pastries..."
+              placeholder="Search Indian coffee, bakes..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               style={{
                 width: '100%',
                 padding: '10px 16px 10px 42px',
                 borderRadius: 'var(--radius-full)',
-                background: 'rgba(20, 16, 12, 0.8)',
-                border: '1px solid var(--border-gold)',
+                background: 'rgba(19, 32, 27, 0.8)',
+                border: '1px solid var(--slate-border)',
                 color: 'var(--text-main)',
                 fontSize: '0.9rem',
                 outline: 'none'
@@ -122,7 +122,7 @@ export default function Menu({ menuItems, onAddToCart, onOpenCustomizer }) {
                       position: 'absolute',
                       top: '14px',
                       left: '14px',
-                      background: 'rgba(10, 8, 6, 0.85)',
+                      background: 'rgba(11, 20, 17, 0.9)',
                       backdropFilter: 'blur(8px)'
                     }}>
                       {item.badge}
@@ -132,7 +132,7 @@ export default function Menu({ menuItems, onAddToCart, onOpenCustomizer }) {
                     position: 'absolute',
                     bottom: '12px',
                     right: '14px',
-                    background: 'rgba(10, 8, 6, 0.85)',
+                    background: 'rgba(11, 20, 17, 0.9)',
                     backdropFilter: 'blur(8px)',
                     padding: '4px 10px',
                     borderRadius: 'var(--radius-full)',
@@ -141,9 +141,9 @@ export default function Menu({ menuItems, onAddToCart, onOpenCustomizer }) {
                     gap: '4px',
                     fontSize: '0.85rem',
                     fontWeight: 600,
-                    color: 'var(--gold-hover)'
+                    color: 'var(--sb-green-light)'
                   }}>
-                    <Star size={14} fill="var(--gold-hover)" color="none" /> {item.rating} ({item.reviews})
+                    <Star size={14} fill="var(--sb-green-light)" color="none" /> {item.rating} ({item.reviews})
                   </div>
                 </div>
 
@@ -157,24 +157,24 @@ export default function Menu({ menuItems, onAddToCart, onOpenCustomizer }) {
                   </p>
                   
                   {item.roast && (
-                    <div style={{ fontSize: '0.78rem', color: 'var(--gold-primary)', marginBottom: '12px', fontWeight: 600 }}>
-                      🔥 {item.roast} • {item.calories || 'Crafted Fresh'}
+                    <div style={{ fontSize: '0.78rem', color: 'var(--sb-green-light)', marginBottom: '12px', fontWeight: 600 }}>
+                      🔥 {item.roast} • {item.calories || 'Fresh Brew'}
                     </div>
                   )}
                 </div>
               </div>
 
-              {/* Action Footer */}
+              {/* Action Footer with Rupee Symbol */}
               <div style={{
                 padding: '0 22px 22px 22px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                borderTop: '1px dashed rgba(212, 175, 55, 0.15)',
+                borderTop: '1px dashed var(--slate-border)',
                 paddingTop: '16px'
               }}>
-                <span className="font-serif text-gold" style={{ fontSize: '1.4rem', fontWeight: 700 }}>
-                  ${item.price.toFixed(2)}
+                <span className="font-serif text-sb" style={{ fontSize: '1.5rem', fontWeight: 700 }}>
+                  ₹{item.price}
                 </span>
 
                 <div style={{ display: 'flex', gap: '8px' }}>
