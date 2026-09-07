@@ -91,7 +91,7 @@ export default function Hero({ onExploreMenu, onOpenQuiz }) {
               <div style={{ fontSize: '0.85rem', color: 'var(--text-dim)' }}>Ethical Arabica</div>
             </div>
             <div style={{ borderLeft: '1px solid var(--border-gold)', paddingLeft: '32px' }}>
-              <div style={{ fontSize: '1.8rem', fontWeight 700, color: 'var(--gold-primary)' }}>18+</div>
+              <div style={{ fontSize: '1.8rem', fontWeight: 700, color: 'var(--gold-primary)' }}>18+</div>
               <div style={{ fontSize: '0.85rem', color: 'var(--text-dim)' }}>Global Awards</div>
             </div>
           </div>
